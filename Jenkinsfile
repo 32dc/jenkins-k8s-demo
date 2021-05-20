@@ -10,7 +10,7 @@ pipeline {
     stage ("Deploy K8s...") {
       steps {
         echo 'Starting K8s Deployment...'
-        kubernetesDeploy configs: 'pod.yml', kubeConfig: [path: ''], kubeconfigId: 'k8s-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+        kubernetesDeploy configs: 'pod.yml', kubeconfigId: 'k8s-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://35.189.125.58']
       }
     }
   }
