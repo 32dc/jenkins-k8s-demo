@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage ("Git Clone...") {
+    stage ("Git Clone..") {
       steps {
         git branch: 'main', credentialsId: '4a0a0b13-b4c9-4a99-a64b-ecd948649d72', url: 'https://github.com/32dc/jenkins-k8s-demo.git'
         echo "GitHub repo cloned..."
@@ -9,7 +9,7 @@ pipeline {
     }
     stage ("Deploy K8s...") {
       steps {
-        echo 'Starting K8s Deployment...'
+        echo 'Starting K8s Deployment..'
         script {
           kubernetesDeploy(configs: "pod.yml", kubeconfigId: "k8s-config")
         }  
