@@ -21,4 +21,5 @@ pipeline {
         kubernetesDeploy configs: 'pod.yml', kubeConfig: [path: ''], kubeconfigId: 'k8s-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
       }
     }
-}
+  }
+} 
