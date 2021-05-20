@@ -1,12 +1,12 @@
+---
 apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
-  namespace: jenkins-ns
   labels:
     app: nginx
-    type: frontend
 spec:
   containers:
     - name: nginx
       image: nginx
+---
