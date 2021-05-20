@@ -1,13 +1,5 @@
 pipeline {
   agent any
-  environment { 
-    PROJECT_ID = 'enduring-art-312620'
-    CLUSTER_NAME = 'jenkins-cl'
-    NAMESPACE = 'jenkins-ns'
-    LOCATION = 'europe-west2-a'
-    CREDENTIALS_ID = 'kubernetes'
-  }
-  
   stages {
     stage ("Git Clone") {
       steps {
@@ -18,7 +10,7 @@ pipeline {
     stage ("Deploy K8s") {
       steps {
         echo 'starting k8s...'
-        kubernetesDeploy credentialsType: 'KubeConfig', kubeConfig: [path: '/var/lib/jenkins/workspace/.kube/config'], configs: 'pod.yml', kubeconfigId: 'k8s-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '']
+        kubernetesDeploy configs: 'pod.yml', kubeConfig: [path: ''], kubeconfigId: 'k8s-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
       }
     }
   }
